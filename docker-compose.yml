@@ -1,0 +1,30 @@
+version: '3.1'
+networks:
+  bot_net:
+    driver: bridge
+
+services:
+
+  currency_bot:
+    container_name: currency_bot
+    build:
+      context: .
+      dockerfile: ./Dockerfile_currency_bot
+    volumes:
+      - "./CurrencyBot:/CurrencyBot"
+    networks:
+      - bot_net
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    environment:
+      - MYSQL_DATABASE=main
+      - MYSQL_ROOT_PASSWORD=pass
+    ports:
+      - '3306:3306'
+    expose:
+      - 3306
+    networks:
+      - bot_net
