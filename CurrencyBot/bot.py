@@ -7,7 +7,7 @@ import pymysql
 from pymysql.cursors import DictCursor
 
 #Токен бота (подробнее в тг @BotFather)
-_TOKEN = ''
+_TOKEN = '' #Вставить свой токен токен, полученный в @BotFather!!!
 
 #Ссылка для получения курса валют в ЦБ
 _URL = 'https://www.cbr-xml-daily.ru/daily_json.js'
@@ -20,7 +20,7 @@ def connect_db():
         sql = pymysql.connect(
             host="mysql",
             user="root",
-            password="",
+            password="pass",
             db="main",
             port=3306,
             charset='utf8mb4',
